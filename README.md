@@ -1,25 +1,24 @@
 # Image-multilabel-classification
 
-Avanços no campo da inteligência artificial têm se mostrado promissores. O desenvolvimento computacional permitiu que algoritmos e técnicas, antes inviáveis de serem implementadas, tornasem-se passível de implementação.
+Advances in the artificial intelligence field have been shown promising. The computational development allowed for algorithms and techniques, before never even considered, to become liable for implementation.
 
-Algoritmos de aprendizado de máquina passaram a ser usados em diversos campos, como o setor financeiros, saúde, educação e diversos outros. Uma aplicação com grande potencial de benefícios é a identificação de imagens.
+Machine learning algorithms have been used in several fields, such as, financial, healthcare, education and many others. Here, we will talk about a specific area: the image identification through artificial intelligence.
 
-A complexidade dentro do trabalho com imagens é alto, além do custo computacional de processamento e armazenamento, o pré processamento das imagens exige técnicas intrincadas. Ao longo dos anos vários trabalhos tem sido desenvolvidos com a intenção de classificar corretamente imagens, e os algoritmos implementados são tão caros computacionalmente quanto o pré processamento das imagens. Com isso, obtêm-se uma combinação traiçoeira: técnicas computacionais de processamento e análise altamente avançadas e custosas.
 
-Este trabalho foi desenvolvido para a disciplina de IHC do mestrado em computação aplicada da UDESC-CTT e tem como objetivo propor a utilização de um algoritimo  ensemble de árvores de decisão para a classificação de imagens.O dataset utilizado para a validação do experimento é o MNIST, este dataset contém 60 mil amostras em tamanho 28x28 de digitos numéricos escritos à mão, variando de números de 0 à 9. O dataset está disponível gratuitamente na biblioteca TensowFlow, criada pelo Google.
+Working with images is a tricky thing. Besides the processing costs and storage, the process itself demands some complex techniques. Through the years several attempts were made to correctly classify images using artificial intelligence.
 
-Este modelo, por sua vez, oferece um custo computacional melhor sem comprometer a qualidade das predições.
+This project was made for a subject in the Applied Computing Program at the 
+University of the State of Santa Catarina, in Brazil. It aims to identify handwritten digits from the MNIST dataset, which has around 60 thousand registers in size 28x28, from 0 to 9, this dataset is available for free on the TensorFlow lib, created by Google. The algorithm used was LightGBM, an ensemble decision tree.
 
-Os dados foram divididos em um conjunto de treino e outro conjunto de teste, em seguida os labels dos conjuntos foram criados.
+This model offers a low computational cost without compromising the prediction performance.
 
-Uma técnica de cross validation também foi aplicada.
+The development of the classification project started with a data analysis, to guarantee there wasn’t any problem with the dataset. After a split in the data was made, creating two new groups: train and test dataset.
 
-O algoritmo utilizado na classificação foi o LightGBM um modelo ensamble formado por árvores de decisão, e outro algoritmo chamado Bayesian search  foi utilizado para a otimização dos hiperparâmetros.
+The train dataset is used so the model can learn through the data, and the test dataset is used to properly evaluate how good the model is.
 
-As métricas de utilizadas para avaliar a qualidade do modelo foram: acurácia, precisão, f1-score e recall.
+A cross validation technique was also applied, using k=5, which practically means that we’ll split our train dataset into five new ones, and each dataset will also be divided in 5 parts, the algorithm will, then, use four of these parts to train and the last one to test,which will allow for a better result.
 
-A primeira versão do modelo foi feita sem a utilização de qualquer otimização nos hiperparâmetros ou validação dos dados.Para o segundo modelo uma etapa de cross validation foi implementada, com o parâmetro cv=5, que indica que o modelo será dividido em cinco grupos, onde quatro serão usados como treinamento e um para teste.
+A Bayesian optimization algorithm was used to optimize the hyperparameters in the LightGBM one.
 
-O resultado obtido não foi superior ao modelo baseline, alcançando os mesmos 0.97 na acurácia.
+The final result was an accuracy up to 98,12%.
 
-Para a última versão do modelo foram testados diversas combinações de hiperparâmetros utilizando o algoritmo Bayesian search.Após a otimização o modelo atingiu acurácia de 0.9812.
